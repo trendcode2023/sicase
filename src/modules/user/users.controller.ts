@@ -1,4 +1,11 @@
-import { Body, Controller, Post, Req, UseInterceptors } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Req,
+  UseInterceptors,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { DateAdderInterceptor } from 'src/interceptors/date.adder.interceptor';
@@ -16,5 +23,9 @@ export class UsersController {
     console.log('entro');
     console.log(request.now);
     return this.usersService.createUser(user, request.now);
+  }
+  @Get()
+  getAllUsers() {
+    return this.usersService.getAllUsers();
   }
 }
