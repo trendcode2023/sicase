@@ -15,7 +15,7 @@ const config = {
   autoLoadEntities: true, //Carga automáticamente las entidades definidas en el proyecto sin necesidad de especificarlas manualmente. entities: [User, Todo],
   synchronize: true, //Sincroniza automáticamente la base de datos con las entidades en cada inicio (útil en desarrollo, pero en producción debe ser false).
   logging: true, // Habilita el registro de las consultas SQL y las operaciones realizadas en la base de datos para depuración.
-  dropSchema: false, // Borra todas las tablas de la base de datos al iniciar la aplicación (normalmente se usa en desarrollo, pero debe ser false en producción).
+  dropSchema: true, // Borra todas las tablas de la base de datos al iniciar la aplicación (normalmente se usa en desarrollo, pero debe ser false en producción).
   entities: ['dist/**/*.entity{.ts,.js}'],
   migrations: ['dist/migrations/*{.ts,.js}'],
   options: {
