@@ -1,9 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { BadRequestException, ValidationPipe } from '@nestjs/common';
+import { loggerMiddlewareGlobal } from './middlewares/logger.middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(loggerMiddlewareGlobal);
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true, // para que no tome ninguna prodiedad adicional seteda en el dto
